@@ -1,11 +1,18 @@
 const Telegraf = require('telegraf')
-const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
+const config = require('./config')
 
-const Cat = mongoose.model('Cat', { name: String })
+const bot = new Telegraf(config.token)
 
-// const kitty = new Cat({ name: 'Zildjian' })
-// kitty.save().then(() => console.log('meow'))
+bot.start(({ reply }) => reply('Hello there!'))
+bot.help(({ reply }) => reply('Help message...'))
+bot.on('message', ctx => ctx.telegram.sendCopy(ctx.from.id, ctx.message))
 
-Cat.find({}).then(document => console.log(document))
+
+bot.launch({
+  webhook: {
+    port: config.port,
+    domain: config.domain,
+    hookPath: config.hookPath,
+  },
+})
