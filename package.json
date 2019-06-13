@@ -1,0 +1,21 @@
+{
+  "name": "contest-bot",
+  "version": "1.0.0",
+  "description": "Secretship Contest Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Suren Khorenyan",
+  "license": "WTFPL",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  },
+  "dependencies": {
+    "mongoose": "^5.5.15",
+    "telegraf": "^3.30.1"
+  }
+}
