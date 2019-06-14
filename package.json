@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "mongoose": "^5.5.15",
+    "mongoose-unique-validator": "^2.0.3",
     "telegraf": "^3.30.1"
   }
 }
