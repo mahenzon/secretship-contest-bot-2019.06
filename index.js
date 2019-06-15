@@ -7,7 +7,7 @@ const config = require('./config')
 const { addOrUpdateUser } = require('./utils/userActions')
 
 
-mongoose.connect('mongodb://localhost/contest-bot', {
+mongoose.connect(config.mongoConnectUri, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useFindAndModify: false,
