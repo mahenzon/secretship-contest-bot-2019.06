@@ -16,10 +16,7 @@ const UserSchema = new Schema({
   profile_photo_id: String,
 })
 
-UserSchema.plugin(timestamps, {
-  createdAt: 'created_at',
-  updatedAt: 'updated_at',
-})
+UserSchema.plugin(timestamps)
 UserSchema.plugin(uniqueValidator)
 
 const User = model('User', UserSchema)
