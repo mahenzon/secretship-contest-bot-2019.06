@@ -1,9 +1,10 @@
 const { Schema, model } = require('mongoose')
+const timestamps = require('mongoose-timestamp')
 const uniqueValidator = require('mongoose-unique-validator')
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   user_id: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
     index: true,
@@ -15,7 +16,11 @@ const userSchema = new Schema({
   profile_photo_id: String,
 })
 
-userSchema.plugin(uniqueValidator)
+UserSchema.plugin(timestamps, {
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+})
+UserSchema.plugin(uniqueValidator)
 
-const User = model('User', userSchema)
+const User = model('User', UserSchema)
 module.exports = User
