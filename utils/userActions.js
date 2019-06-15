@@ -18,24 +18,24 @@ async function updateProfileImageId(user_id) {
 }
 
 async function addOrUpdateUser(user) {
+  const user_id = user.id
   const newUser = {
-    user_id: user.id,
-    first_name: user.first_name,
-    last_name: user.last_name,
+    user_id,
     username: user.username,
+    last_name: user.last_name,
+    first_name: user.first_name,
     language_code: user.language_code,
   }
-  const query = { user_id: user.id }
   const options = {
     upsert: true,
     setDefaultsOnInsert: true,
   }
-  User.findOneAndUpdate(query, newUser, options, (err) => {
+  User.findOneAndUpdate({ user_id }, newUser, options, (err) => {
     if (err) {
       console.error('Error adding new user!', user, err)
       return
     }
-    updateProfileImageId(user.id)
+    updateProfileImageId(user_id)
   })
 }
 
