@@ -40,11 +40,11 @@ bot.use(({ message }, next) => {
 })
 
 bot.start(({ reply }) => reply('Hello...', kb))
-bot.help(({ reply }) => reply('Help message...'))
-bot.on('message', ctx => ctx.telegram.sendCopy(ctx.from.id, ctx.message))
+bot.help(({ reply }) => reply('Help message...', kb))
+bot.on('message', ctx => ctx.telegram.sendCopy(ctx.from.id, ctx.message, kb))
 
 
-bot.launch()
+bot.launch().then(() => console.log('Started bot'))
 // bot.launch({
 //   webhook: {
 //     port: config.port,
