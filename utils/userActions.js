@@ -30,13 +30,13 @@ async function addOrUpdateUser(user) {
     upsert: true,
     setDefaultsOnInsert: true,
   }
-  User.findOneAndUpdate({ user_id }, newUser, options, (err) => {
-    if (err) {
-      console.error('Error adding new user!', user, err)
-      return
-    }
-    updateProfileImageId(user_id)
-  })
+  try {
+    await User.findOneAndUpdate({ user_id }, newUser, options)
+  } catch (error) {
+    console.error('Error adding new user!', user, error)
+    return
+  }
+  updateProfileImageId(user_id)
 }
 
 
