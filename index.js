@@ -27,7 +27,7 @@ db.on('error', (err) => {
 
 // Create constant login keyboard
 const keyboard = Markup.inlineKeyboard([
-  Markup.loginButton('Login', `${config.domain}/login`),
+  Markup.loginButton('Login btn', `${config.domain}/api/login`),
 ])
 const kb = Extra.markup(keyboard)
 
