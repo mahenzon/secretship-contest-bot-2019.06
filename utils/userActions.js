@@ -5,7 +5,7 @@ const config = require('../config')
 const tg = new Telegram(config.token)
 
 async function updateProfileImageId(user_id) {
-  const { total_count, photos } = await tg.getUserProfilePhotos(user_id, 1, 1)
+  const { total_count, photos } = await tg.getUserProfilePhotos(user_id, 0, 1)
   if (total_count <= 0) return
   const photoArray = photos[0]
   const photo = photoArray[photoArray.length - 1]
