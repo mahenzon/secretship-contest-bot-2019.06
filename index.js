@@ -4,7 +4,7 @@ const Extra = require('telegraf/extra')
 const Markup = require('telegraf/markup')
 
 const config = require('./config')
-const { addOrUpdateUser } = require('./utils/userActions')
+const { addOrUpdateUser } = require('./utils/user-actions')
 
 
 mongoose.connect(config.mongoConnectUri, {
