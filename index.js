@@ -11,13 +11,9 @@ mongoose.connect(config.mongoConnectUri, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useFindAndModify: false,
+  reconnectTries: Number.MAX_VALUE,
 })
 const db = mongoose.connection
-
-// Check connection
-db.once('open', () => {
-  console.log('Connected to MongoDB')
-})
 
 // Check for db errors
 db.on('error', (err) => {
@@ -44,11 +40,16 @@ bot.help(({ reply }) => reply('Help message...', kb))
 bot.on('message', ctx => ctx.telegram.sendCopy(ctx.from.id, ctx.message, kb))
 
 
-bot.launch().then(() => console.log('Started bot'))
-// bot.launch({
-//   webhook: {
-//     port: config.port,
-//     domain: config.domain,
-//     hookPath: config.hookPath,
-//   },
-// })
+// Check connection
+db.once('open', () => {
+  console.log('Connected to MongoDB')
+  // Start server only after DB connect
+  bot.launch().then(() => console.log('Started bot'))
+  // bot.launch({
+  //   webhook: {
+  //     port: config.port,
+  //     domain: config.domain,
+  //     hookPath: config.hookPath,
+  //   },
+  // })
+})
