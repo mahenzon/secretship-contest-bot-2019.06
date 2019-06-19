@@ -44,12 +44,12 @@ bot.on('message', ctx => ctx.telegram.sendCopy(ctx.from.id, ctx.message, kb))
 db.once('open', () => {
   console.log('Connected to MongoDB')
   // Start server only after DB connect
-  bot.launch().then(() => console.log('Started bot'))
-  // bot.launch({
-  //   webhook: {
-  //     port: config.port,
-  //     domain: config.domain,
-  //     hookPath: config.hookPath,
-  //   },
-  // })
+  // bot.launch().then(() => console.log('Started bot'))
+  bot.launch({
+    webhook: {
+      port: config.port,
+      domain: config.domain,
+      hookPath: config.hookPath,
+    },
+  }).then(() => console.log('Started bot with webhook'))
 })
