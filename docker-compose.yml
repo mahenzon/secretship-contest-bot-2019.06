@@ -2,10 +2,17 @@ version: '3'
 services:
   bot:
     container_name: contest-bot
+    environment:
+      - DOMAIN=${DOMAIN}
+      - NODE_ENV=${NODE_ENV}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - WEBHOOK_PATH=${WEBHOOK_PATH}
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
     restart: always
     build: .
     ports:
-      - '3001:3001'
+      - '3000:${PORT}'
     links:
       - mongo
   mongo:
