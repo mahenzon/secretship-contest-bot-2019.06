@@ -1,0 +1,18 @@
+loginBtn: Login
+greeting: <b>Hello!</b>
+languageSelected: Now using English!
+about: I was created for the <a href="https://t.me/SecretshipContests/4">Secretship Contest</a>.
+
+  My purpose is only to help you to login to the astrey.tk/secretship-contest-2019.06/ with the button below.
+  
+  Just tap it!
+help: 'Hi! I have these available commands:
+
+  - /start
+
+  - /help (this message)
+
+  - /en set English language
+
+  - /ru установить русский язык
+'

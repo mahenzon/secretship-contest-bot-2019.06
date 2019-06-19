@@ -1,0 +1,18 @@
+loginBtn: Войти
+greeting: <b>Привет!</b>
+languageSelected: Теперь говорим по-русски!
+about: Я был создан для <a href="https://t.me/SecretshipContests/4">конкурса от Secretship</a>.
+
+  Моя задача состоит в том, чтобы помочь тебе зайти на сайт astrey.tk/secretship-contest-2019.06/ при помощи кнопки ниже.
+  
+  Просто тапни её!
+help: 'Йоу! Я знаю следующие команды::
+
+  - /start
+
+  - /help (это сообщение)
+
+  - /en set English language
+
+  - /ru установить русский язык
+'
